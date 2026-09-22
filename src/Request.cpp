@@ -80,7 +80,7 @@ void Request::performCPRequest() {
     req.bodyString(fmt::format("targetAccountID={}&secret={}", accountID, "Wmfd2893gb7"));
 
     m_listener.spawn(
-        req.post("http://www.boomlings.com/database/getGJUserInfo20.php"),
+        req.post("https://www.boomlings.com/database/getGJUserInfo20.php"),
         [](web::WebResponse res) {
             Request::m_openGameChecked = true;
             
@@ -140,7 +140,7 @@ void Request::performCPRequest() {
     web::AsyncWebRequest()
         .postRequest()
         .bodyRaw(fmt::format("targetAccountID={}&secret={}", accountID, "Wmfd2893gb7"))
-        .fetch("http://www.boomlings.com/database/getGJUserInfo20.php")
+        .fetch("https://www.boomlings.com/database/getGJUserInfo20.php")
         .text()
         .then([totalEXP](const std::string& response) {
             
